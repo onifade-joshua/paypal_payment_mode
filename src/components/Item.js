@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import styled from 'styled-components';
-import Image1 from "../../src/assets/clip.jpg";
-import Image2 from "../../src/assets/image.jpg";
-import Image3 from "../../src/assets/photo.jpg";
+import PropTypes from 'prop-types';
 import "./Item.css";
+
 
 
 
@@ -13,30 +12,29 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 
-const Item = () => {
+const Item = ({ id, imageUrl, productName, price }) => {
     return (
-        <div className='item_wrapper'>
-            <Wrapper>
-                <div className='item_box'>
-                    <img className='img' src={Image1} alt="" />
-                    <h4>Iphone X 256Gb</h4>
-                    <strong><p>&#x24; 165</p></strong>
+        <Wrapper>
+            <div className='item_wrapper'>
+
+                <div id={id} className='item_box'>
+                    <img className='img' src={imageUrl} alt="" />
+                    <h4>{productName}</h4>
+                    <strong><p>{price}</p></strong>
                 </div>
 
-                <div className='item_box'>
-                    <img className='img' src={Image2} alt="" />
-                    <h4>Iphone 8+ 256Gb</h4>
-                    <strong><p>&#x24; 120</p></strong>
-                </div>
-
-                <div className='item_box'>
-                    <img className='img' src={Image3} alt="" />
-                    <h4>Iphone XI 500Gb</h4>
-                    <strong><p>&#x24; 185</p></strong>
-                </div>
-            </Wrapper>
-        </div>
+            </div>
+        </Wrapper>
     )
 };
 
 export default Item;
+
+
+
+Item.propTypes = {
+    id: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+};

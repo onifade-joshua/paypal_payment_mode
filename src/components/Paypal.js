@@ -5,6 +5,7 @@ import {
     PayPalButtons,
     usePayPalScriptReducer
 } from "@paypal/react-paypal-js";
+// import CreateOrder from "../components/CreateOrder";
 
 // This values are the props in the UI
 const amount = "180";
@@ -43,6 +44,7 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
                                     amount: {
                                         currency_code: currency,
                                         value: amount,
+                                        
                                     },
                                 },
                             ],
@@ -57,6 +59,7 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
                         // Your code here after capture the order
                     });
                 }}
+                
             />
         </>
     );
@@ -72,9 +75,11 @@ export default function Paypal(){
                     currency: "USD"
                 }}
             >
+                 {/* <CreateOrder /> */}
 				<ButtonWrapper
                     currency={currency}
                     showSpinner={false}
+                    amount={amount}
                 />
 			</PayPalScriptProvider>
 		</div>
